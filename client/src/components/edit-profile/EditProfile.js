@@ -2,15 +2,16 @@ import React, { Fragment, useState, useEffect } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { createProfile, getCurrentProfile } from '../../actions/profileActions';
+import { updateProfile, getCurrentProfile } from '../../actions/profileActions';
 
 const EditProfile = ({
                          profile: { profile, loading },
-                         createProfile,
+                         updateProfile,
                          getCurrentProfile,
                          history
                      }) => {
     const [formData, setFormData] = useState({
+        id: '',
         handle: '',
         company: '',
         website: '',
@@ -32,12 +33,13 @@ const EditProfile = ({
         getCurrentProfile();
 
         setFormData({
+            id: loading || !profile.id ? '' : profile.id,
             handle: loading || !profile.handle ? '' : profile.handle,
             company: loading || !profile.company ? '' : profile.company,
             website: loading || !profile.website ? '' : profile.website,
             location: loading || !profile.location ? '' : profile.location,
             status: loading || !profile.status ? '' : profile.status,
-            skills: loading || !profile.skills ? '' : profile.skills.join(','),
+            skills: loading || !profile.skills ? '' : profile.skills,
             githubusername:
                 loading || !profile.githubusername ? '' : profile.githubusername,
             bio: loading || !profile.bio ? '' : profile.bio,
@@ -50,6 +52,7 @@ const EditProfile = ({
     }, [loading, getCurrentProfile]);
 
     const {
+        id,
         handle,
         company,
         website,
@@ -70,7 +73,7 @@ const EditProfile = ({
 
     const onSubmit = e => {
         e.preventDefault();
-        createProfile(formData, history, true);
+        updateProfile(formData, history, true);
     };
 
     return (
@@ -81,6 +84,7 @@ const EditProfile = ({
             </p>
             <small>* = required field</small>
             <form className='form' onSubmit={e => onSubmit(e)}>
+                <input type="hidden" name="id" value={id} onChange={e => onChange(e)}/>
                 <div className="form-group">
                     <input type="text" className="form-control form-control-lg" placeholder="* Profile handle" name="handle" required
                             value={handle} onChange={e => onChange(e)}/>
@@ -253,7 +257,7 @@ const EditProfile = ({
 };
 
 EditProfile.propTypes = {
-    createProfile: PropTypes.func.isRequired,
+    updateProfile: PropTypes.func.isRequired,
     getCurrentProfile: PropTypes.func.isRequired,
     profile: PropTypes.object.isRequired
 };
@@ -264,5 +268,5 @@ const mapStateToProps = state => ({
 
 export default connect(
     mapStateToProps,
-    { createProfile, getCurrentProfile }
+    { updateProfile, getCurrentProfile }
 )(withRouter(EditProfile));

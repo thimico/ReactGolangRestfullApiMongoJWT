@@ -8,7 +8,7 @@ import (
 
 type Profile struct {
 	Id       			bson.ObjectId 				`json:"id" bson:"_id"`
-	User      			*User						`json:"user" bson:"user"`
+	User      			bson.ObjectId 				`json:"user" bson:"user"`
 	Handle 	 			string        				`json:"handle" bson:"handle"`
 	Company    			string        				`json:"company" bson:"company"`
 	Website 			string        				`json:"website" bson:"website"`

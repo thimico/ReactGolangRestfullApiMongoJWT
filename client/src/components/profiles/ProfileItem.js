@@ -33,7 +33,7 @@ class ProfileItem extends Component {
                     <div className="col-md-4 d-none d-lg-block">
                         <h4>Skill Set</h4>
                         <ul className="list-group">
-                            {profile.skills.slice(0, 4).map((skill, index) => (
+                            {!!profile.skills && Array.isArray(profile.skills) && profile.skills.slice(0, 4).map((skill, index) => (
                             <li key={index} className='list-group-item'>
                                 <i className='fas fa-check pr-1' /> 
                                 {skill}

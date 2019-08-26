@@ -48,3 +48,17 @@ func (userDAO UserDAO) FindByEmail(email string) (entities.User, error) {
 	}).One(&user)
 	return user, err
 }
+
+func (userDAO UserDAO) FindByID(id string) (entities.User, error) {
+	var user entities.User
+	err := userDAO.DB.C(userDAO.COLLECTION).FindId(bson.M{
+		"_id": id,
+	}).One(&user)
+	return user, err
+}
+
+func (dao UserDAO) FindOne(id string) (entities.User, error) {
+	var entity entities.User
+	err := dao.DB.C(dao.COLLECTION).FindId(bson.ObjectIdHex(id)).One(&entity)
+	return entity, err
+}

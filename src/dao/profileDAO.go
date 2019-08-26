@@ -10,9 +10,9 @@ type ProfileDAO struct {
 	AbstractDAO
 }
 
-func (profileDAO ProfileDAO) handle(handle string) (entities.Profile, error) {
+func (profileDAO ProfileDAO) Handle(handle string) (entities.Profile, error) {
 	var profile entities.Profile
-	err := profileDAO.DB.C(profileDAO.COLLECTION).FindId(bson.M{
+	err := profileDAO.DB.C(profileDAO.COLLECTION).Find(bson.M{
 		"handle": handle,
 	}).One(&profile)
 	return profile, err

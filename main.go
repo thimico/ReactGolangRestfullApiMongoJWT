@@ -25,7 +25,7 @@ func main() {
 	r.HandleFunc("/api/profile/all", profileapi.FindAll).Methods("GET")
 	r.HandleFunc("/api/profile", profileapi.Current).Methods("GET")
 	r.HandleFunc("/api/profile/{id}", profileapi.Find).Methods("GET")
-	r.HandleFunc("api/profile/handle/{id}", profileapi.Find).Methods("GET")
+	r.HandleFunc("/api/profile/handle/{handle}", profileapi.Handle).Methods("GET")
 	r.HandleFunc("/api/profile", profileapi.Create).Methods("POST")
 	r.HandleFunc("/api/profile/{id}", profileapi.Update).Methods("PUT")
 	r.HandleFunc("/api/profile/{id}", profileapi.Delete).Methods("DELETE")
