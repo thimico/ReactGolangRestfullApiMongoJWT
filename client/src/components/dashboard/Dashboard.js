@@ -36,10 +36,14 @@ class Dashboard extends Component {
                             <i className="fas fa-graduation-cap text-info mr-1"></i>
                             Add Education</Link>
                         </div>
-
-                        <Experience experience={profile.experience} />
-                        <Education education={profile.education} />
-
+                        if (!!profile.experience) {
+                        <Experience
+                            experience = {profile.experience}
+                            />
+                        }
+                        if (!!profile.education) {
+                            <Education education={profile.education} />
+                        }
                         <div tyle={{ marginBottom: '60px' }}>
                             <button className="btn btn-danger">
                             Delete My Account

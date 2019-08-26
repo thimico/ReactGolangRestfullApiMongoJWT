@@ -6,7 +6,9 @@ import { connect } from 'react-redux';
 import { deleteEducation } from '../../actions/profileActions';
 
 const Education = ({ education, deleteEducation }) => {
-  const educations = education.map(edu => (
+  const educations = "no data"
+  if (!!education) {
+  educations = education.map(edu => (
     <tr key={edu._id}>
       <td>{edu.school}</td>
       <td className="hide-sm">{edu.degree}</td>
@@ -28,6 +30,7 @@ const Education = ({ education, deleteEducation }) => {
       </td>
     </tr>
   ));
+        }
 
   return (
     <Fragment>

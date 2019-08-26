@@ -6,7 +6,9 @@ import { connect } from 'react-redux';
 import { deleteExperience } from '../../actions/profileActions';
 
 const Experience = ({ experience, deleteExperience }) => {
-  const experiences = experience.map(exp => (
+  const experiences = "no data"
+  if (!!experience) {
+  experiences = experience.map(exp => (
     <tr key={exp._id}>
       <td>{exp.company}</td>
       <td className="hide-sm">{exp.title}</td>
@@ -28,6 +30,7 @@ const Experience = ({ experience, deleteExperience }) => {
       </td>
     </tr>
   ));
+        }
 
   return (
     <Fragment>

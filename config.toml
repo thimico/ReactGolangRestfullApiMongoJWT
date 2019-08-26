@@ -1,0 +1,2 @@
+server="mongodb://user:teste123@ds023523.mlab.com:23523/golang_rest"
+database="golang_rest"
