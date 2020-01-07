@@ -1,8 +1,8 @@
 package dao
 
 import (
-	"../entities"
-	. "./abstractdao"
+	"ReactGolangRestfullApiMongoJWT/src/entities"
+	. "ReactGolangRestfullApiMongoJWT/src/dao/abstractdao"
 	"golang.org/x/crypto/bcrypt"
 	"gopkg.in/mgo.v2/bson"
 )

@@ -5,10 +5,10 @@ import (
 	"net/http"
 
 	"github.com/gorilla/mux"
-	"../../config"
-	"../../dao"
-	a "../../dao/abstractdao"
-	"../../entities"
+	"ReactGolangRestfullApiMongoJWT/src/config"
+	"ReactGolangRestfullApiMongoJWT/src/dao"
+	a "ReactGolangRestfullApiMongoJWT/src/dao/abstractdao"
+	"ReactGolangRestfullApiMongoJWT/src/entities"
 	"gopkg.in/mgo.v2/bson"
 )
 

@@ -13,7 +13,7 @@ packages:
 build: vet
 	goapp build -v ./...
 
-hot-reload:
+hot-reload: upgrade-node
 	npm install --prefix client && \
 	npm start --prefix client
 
@@ -22,8 +22,7 @@ hot-server:
 
 development-server:
 	npm install --prefix client && \
-	npm run-script build --prefix client --mode development && \
-	cd ../ && \
+	npm start --prefix client && \
 	go run main.go
 
 staging-server:
@@ -61,3 +60,9 @@ build-client:
 
 dev:
 	cd ./client/build/ && npm run-script build  && cd ../../ && go run main.go
+
+# Install stable version of nodejs (10.16.x)
+upgrade-node:
+	sudo npm cache clean -f && \
+	sudo npm install -g n && \
+	sudo n stable

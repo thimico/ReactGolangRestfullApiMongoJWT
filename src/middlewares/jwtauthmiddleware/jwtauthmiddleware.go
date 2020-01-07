@@ -4,10 +4,9 @@ import (
 	"encoding/json"
 	"net/http"
 	"github.com/dgrijalva/jwt-go"
-	"../../config"
-	"../../dao"
-	a "../../dao/abstractdao"
-	"src/github.com/dgrijalva/jwt-go"
+	"ReactGolangRestfullApiMongoJWT/src/config"
+	"ReactGolangRestfullApiMongoJWT/src/dao"
+	a "ReactGolangRestfullApiMongoJWT/src/dao/abstractdao"
 )
 
 var secretKey = "MySecretKey"

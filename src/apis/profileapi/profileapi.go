@@ -1,10 +1,10 @@
 package profileapi
 
 import (
-	"../../config"
-	"../../dao"
-	a "../../dao/abstractdao"
-	"../../entities"
+	"ReactGolangRestfullApiMongoJWT/src/config"
+	"ReactGolangRestfullApiMongoJWT/src/dao"
+	a "ReactGolangRestfullApiMongoJWT/src/dao/abstractdao"
+	"ReactGolangRestfullApiMongoJWT/src/entities"
 	"encoding/json"
 	"github.com/gorilla/mux"
 	"gopkg.in/mgo.v2/bson"
@@ -64,7 +64,7 @@ func Current(resp http.ResponseWriter, req *http.Request) {
 				profile.Status, profile.Skills, profile.Bio, profile.Githubusername}
 
 			if err = json.NewEncoder(resp).Encode(data); err != nil {
-				log.Fatalln("Error on encode json of address: %v", err)
+				log.Fatalln("Error on encode json of address: ", err)
 				respondWithError(resp, http.StatusBadRequest, "Falha ao recuperar a unidade de entrega (cod=2.1)")
 				return
 			}
@@ -142,7 +142,7 @@ func Handle(response http.ResponseWriter, request *http.Request) {
 
 				}{ userSearch, profile.Handle, profile.Company}
 				if err = json.NewEncoder(response).Encode(data); err != nil {
-					log.Fatalln("Error on encode json of address: %v", err)
+					log.Fatalln("Error on encode json of address: ", err)
 					respondWithError(response, http.StatusBadRequest, "Falha ao recuperar a unidade de entrega (cod=2.1)")
 					return
 				}

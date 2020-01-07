@@ -1,9 +1,9 @@
 package dao
 
 import (
-	. "./abstractdao"
+	. "ReactGolangRestfullApiMongoJWT/src/dao/abstractdao"
 	"gopkg.in/mgo.v2/bson"
-	"../entities"
+	"ReactGolangRestfullApiMongoJWT/src/entities"
 )
 
 type ProfileDAO struct {

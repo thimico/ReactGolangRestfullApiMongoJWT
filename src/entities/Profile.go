@@ -14,7 +14,7 @@ type Profile struct {
 	Website 			string        				`json:"website" bson:"website"`
 	Location 			string        				`json:"location" bson:"location"`
 	Status   			string          			`json:"status" bson:"status"`
-	Skills    			string        			`json:"skills" bson:"skills"`
+	Skills    			string        				`json:"skills" bson:"skills"`
 	Bio     			string        			 	`json:"bio" bson:"bio"`
 	Githubusername     	string        				`json:"githubusername" bson:"githubusername"`
 	Experience    		*[]Experience        		`json:"experience" bson:"experience"`

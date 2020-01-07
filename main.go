@@ -7,9 +7,9 @@ import (
 	"os"
 	"github.com/gorilla/mux"
 
-	"./src/apis/jwtauth"
-	"./src/apis/userapi"
-	"./src/apis/profileapi"
+	"ReactGolangRestfullApiMongoJWT/src/apis/jwtauth"
+	"ReactGolangRestfullApiMongoJWT/src/apis/userapi"
+	"ReactGolangRestfullApiMongoJWT/src/apis/profileapi"
 )
 
 func main() {

@@ -1,7 +1,7 @@
 package dao
 
 import (
-	"../../entities"
+	"ReactGolangRestfullApiMongoJWT/src/entities"
 	"gopkg.in/mgo.v2"
 	"gopkg.in/mgo.v2/bson"
 )
